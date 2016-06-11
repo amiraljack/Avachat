@@ -1,0 +1,23 @@
+#message{
+	width: 400px;
+}
+	
+.sendButton{
+	height: 30px;
+    background-color: black;
+    width: 120px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.backButton{
+	height: 50px;
+    background-color: black;
+    width: 120px;
+    line-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}

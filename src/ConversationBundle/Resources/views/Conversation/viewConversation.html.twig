@@ -13,17 +13,7 @@
 			</h3>
 			<div class="col-sm-3 col-sm-offset-3">
 				<a href="{{ app.request.baseUrl }}/home">
-					<div style="height: 50px;
-							    background-color: black;
-							    width: 120px;
-							    line-height: 50px;
-							    text-align: center;
-							    text-transform: uppercase;
-							    color: white;">
-
-							    Retour
-
-					</div>
+					<div class="backButton">Retour</div>
 				</a>
 		</div>
 		</div>
@@ -36,20 +26,10 @@
 	</div>
 	<div class="row col-sm-6 col-sm-offset-3" style="text-align:right">
 		<div class="sendMessageForm">
-			<input id="message" 	 type="text" placeholder="Ecrire un message" style="width:400px;"/>
+			<input id="message" 	 type="text" placeholder="Ecrire un message"/>
 			<input id="conversation" type="hidden" value="{{ conversationid }}"/>
 			<input id="userid" 		 type="hidden" value="{{ user }}"/>
-			<button id="sendMessage" value="{{ app.request.baseUrl }}/message" type="button" style="height: 30px;
-																								    background-color: black;
-																								    width: 120px;
-																								    line-height: 27px;
-																								    text-align: center;
-																								    text-transform: uppercase;
-																								    color: white;">
-							    
-							    Envoyer
-
-							    </button>
+			<button id="sendMessage" class="sendButton" value="{{ app.request.baseUrl }}/message" type="button">Envoyer</button>
 		</div>
 	</div>
 	
