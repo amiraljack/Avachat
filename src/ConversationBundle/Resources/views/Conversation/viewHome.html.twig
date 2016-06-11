@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ConversationBundle:Message:view{% endblock %}
+
+{% block body %}
+	
+	<div class="col-sm-3 col-sm-offset-3">
+		<h1>Bienvenue sur Avachat !</h1>
+	</div>
+	<div class="col-sm-3">
+		<h1>Ouvrir une conversation:</h1><br>
+		{% for conversation in conversations %}
+		        <a href="{{ app.request.baseUrl }}/conversation/{{ conversation.getConversationid }}">
+		        	<li>{{ conversation.getLabelconversation }}</li>
+		        </a>
+		{% endfor %}
+	</div>
+	
+{% endblock %}

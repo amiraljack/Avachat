@@ -1,6 +1,9 @@
 home_view:
     path:     /home
-    defaults: { _controller: ConversationBundle:Conversation:view }
+    defaults: { _controller: ConversationBundle:Conversation:viewHome }
 addMessage:
     path:     /message
     defaults: { _controller: ConversationBundle:Conversation:addMessage }
+conversation:
+    path:     /conversation/{conversationid}
+    defaults: { _controller: ConversationBundle:Conversation:viewConversation }

@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ConversationBundle:Message:view{% endblock %}
+
+{% block body %}
+	
+	<div class="col-sm-3 col-sm-offset-3">
+		<h1>{{ conversationLabel }}</h1>
+	</div>
+	<div class="col-sm-3">
+		<h1>Voici les messages</h1><br>
+		{% for message in conversation %}
+		        	<li>{{ message.getText }} | {{ message.getUserid }}</li>
+		{% endfor %}
+	</div>
+	
+{% endblock %}

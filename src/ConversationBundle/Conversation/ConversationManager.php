@@ -13,27 +13,38 @@ class ConversationManager
   }
 
   // Get all conversations for one user
-  public function getConversations($userid)
+  public function getUsersConversations($userid)
   {
-      $conversationsManager = $this->em->getRepository('ConversationBundle:UsersConversations');
-      $conversations = $conversationsManager->findBy(array("userid"=>$userid));
+      $usersConversationsManager = $this->em->getRepository('ConversationBundle:UsersConversations');
+      $usersConversations = $usersConversationsManager->findBy(array("userid"=>$userid));
       return $conversations;
   }
 
   // Get all message for a conversation
-  public function getMessages()
+  public function getMessages($conversationid)
   {
       $messagesManager = $this->em->getRepository('ConversationBundle:Messages');
-      $message = $messagesManager->findBy(array("userid"=>null));
-      return $message;
+      $messages = $messagesManager->findBy(array("conversationid"=>$conversationid));
+      
+      return $messages;
+  }
+  // Get conversation label for an user
+  public function getLabelConversation($conversationid, $userid)
+  {
+      $usersConversationsManager = $this->em->getRepository('ConversationBundle:UsersConversations');
+      $usersConversations = $usersConversationsManager->findOneBy(array("conversationid"=>$conversationid, "userid"=>$userid));
+
+      return $usersConversations->getLabelConversation();
   }
 
   // Get all new messages since last timestamp
   public function getNewMessages()
   {
+      /*
       $messagesManager = $this->em->getRepository('ConversationBundle:Messages');
       $message = $messagesManager->findBy(array("userid"=>null));
       return $message;
+      */
   }
 
   // Add new message on a conversation for an user
@@ -52,15 +63,17 @@ class ConversationManager
 
       $em->persist($newMessage);
       $em->flush();
-      
-      return json_encode(array("isSuccess"=>true));
+
+      return true;
   }
 
   // Create new conversation
   public function addConversation()
   {
+      /*
       $messagesManager = $this->em->getRepository('ConversationBundle:Messages');
       $message = $messagesManager->findOneBy(array("userid"=>null));
       return $message;
+      */
   }
 }
