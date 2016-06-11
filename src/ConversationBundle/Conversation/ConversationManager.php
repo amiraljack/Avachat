@@ -13,11 +13,11 @@ class ConversationManager
   }
 
   // Get all conversations for one user
-  public function getUsersConversations($userid)
+  public function getUserConversations($userid)
   {
       $usersConversationsManager = $this->em->getRepository('ConversationBundle:UsersConversations');
-      $usersConversations = $usersConversationsManager->findBy(array("userid"=>$userid));
-      return $conversations;
+      $userConversations = $usersConversationsManager->findBy(array("userid"=>$userid));
+      return $userConversations;
   }
 
   // Get all message for a conversation
@@ -28,17 +28,35 @@ class ConversationManager
       
       return $messages;
   }
+
   // Get conversation label for an user
-  public function getLabelConversation($conversationid, $userid)
+  public function getLabelConversation ($conversationid, $userid)
   {
       $usersConversationsManager = $this->em->getRepository('ConversationBundle:UsersConversations');
-      $usersConversations = $usersConversationsManager->findOneBy(array("conversationid"=>$conversationid, "userid"=>$userid));
+      $userConversations = $usersConversationsManager->findOneBy(array("conversationid"=>$conversationid, "userid"=>$userid));
 
-      return $usersConversations->getLabelConversation();
+      return $userConversations->getLabelConversation();
+  }
+
+  // Get conversation label for an user
+  public function getParticipantsConversation ($conversationid)
+  {
+      $usersConversationsManager = $this->em->getRepository('ConversationBundle:UsersConversations');
+      $usersManager = $this->em->getRepository('UserBundle:Users');
+
+      $usersConversations = $usersConversationsManager->findBy(array("conversationid"=>$conversationid));
+
+      $list = array();
+      foreach ($usersConversations as $participant)
+      {
+          $list[] = $usersManager->findOneBy(array("userid" =>$participant->getUserid()))->getUsername();
+      }
+
+      return $list;
   }
 
   // Get all new messages since last timestamp
-  public function getNewMessages()
+  public function getNewMessages ()
   {
       /*
       $messagesManager = $this->em->getRepository('ConversationBundle:Messages');

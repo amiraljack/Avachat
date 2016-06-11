@@ -117,9 +117,9 @@ class Messages
      *
      * @return Messages
      */
-    public function setConversationid($date)
+    public function setConversationid($conversationid)
     {
-        $this->date = $date;
+        $this->conversationid = $conversationid;
 
         return $this;
     }
