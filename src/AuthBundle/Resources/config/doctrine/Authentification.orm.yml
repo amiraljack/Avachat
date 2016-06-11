@@ -1,0 +1,11 @@
+AuthBundle\Entity\Authentification:
+    type: entity
+    table: null
+    repositoryClass: AuthBundle\Repository\AuthentificationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

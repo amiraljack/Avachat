@@ -1,0 +1,7 @@
+conversation_homepage:
+    path:     /
+    defaults: { _controller: ConversationBundle:Default:index }
+
+home_view:
+    path:     /home
+    defaults: { _controller: ConversationBundle:Conversation:view }

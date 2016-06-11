@@ -1,0 +1,13 @@
+ConversationBundle\Entity\Conversation:
+    type: entity
+    table: conversation
+    id:
+        conversationid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

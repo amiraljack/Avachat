@@ -1,0 +1,31 @@
+ConversationBundle\Entity\Messages:
+    type: entity
+    table: null
+    repositoryClass: ConversationBundle\Repository\MessagesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        userid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        conversationid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        text:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        date:
+            type: date
+            nullable: false
+    lifecycleCallbacks: {  }

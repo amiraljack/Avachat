@@ -1,0 +1,5 @@
+services:
+    conversationmanager:
+       class: ConversationBundle\Conversation\ConversationManager
+       arguments: 
+        entityManager: "@doctrine.orm.entity_manager"
